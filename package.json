@@ -1,0 +1,49 @@
+{
+  "name": "megafon",
+  "version": "1.0.0",
+  "private": false,
+  "description": "backend",
+  "scripts": {
+    "clean": "rm -rf public && mkdir public && webpack",
+    "dev": "npm run clean && concurrently --kill-others \"webpack --watch\" \"forever -w ./public/backend.js\"",
+    "build": "set NODE_ENV=prod && webpack",
+    "lint": "eslint --ext .js",
+    "start": "npm run build && node public/backend.js"
+  },
+  "author": "Sergey Topolov",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:topus009/megafon-backend.git"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "chalk": "^2.4.1",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "lodash": "^4.17.10",
+    "mongoose": "^5.3.12"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "concurrently": "^3.5.0",
+    "eslint": "^4.7.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "forever": "^0.15.3",
+    "nodemon": "^1.18.6",
+    "path": "^0.12.7",
+    "webpack": "^3.6.0",
+    "webpack-node-externals": "^1.6.0"
+  }
+}

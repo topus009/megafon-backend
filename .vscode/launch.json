@@ -1,0 +1,22 @@
+{
+    "version": "0.0.1",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Node (Babel)",
+            "program": "${workspaceRoot}/public/backend.js",
+            "cwd": "${workspaceRoot}",
+            "sourceMaps": true,
+            "args": [
+                "--harmony"
+            ],
+            "showAsyncStacks": true,
+            "protocol": "inspector",
+            "stopOnEntry": false,
+            "env": {
+                "NODE_ENV": "debug"
+            }
+        }
+    ]
+}
