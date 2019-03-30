@@ -11,7 +11,7 @@ const options = {
   useNewUrlParser: true
 }
 
-function setUpConnection () {
+function setUpConnection() {
   const dbPath = 'mongodb://' + config.host + '/' + config.name
   console.log(dbPath)
   mongoose.connect(dbPath, options)
@@ -19,7 +19,9 @@ function setUpConnection () {
 
 setUpConnection()
 app.use(bodyParser.json())
-app.use(cors({origin: '*'}))
+app.use(cors({
+  origin: '*'
+}))
 app.use('/api', require('./api'))
 
 app.listen(config.port, () => {
