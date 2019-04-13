@@ -24,7 +24,8 @@ api.post('/contacts', (req, res) => {
       Contact.find({})
         .then(contact => {
           res.send(contact)
-        }) }).catch(err => console.log(err))
+        })
+    }).catch(err => console.log(err))
 })
 
 api.put('/contacts/:id', (req, res) => {
@@ -38,12 +39,10 @@ api.put('/contacts/:id', (req, res) => {
 })
 
 api.delete('/contacts/:id', (req, res) => {
-  Contact.deleteOne({_id: req.params.id})
-    .then((data) => {
-      Contact.find({}).then(contact => {
-        res.send(contact)
-      })
-    })
+  Contact.findByIdAndDelete(req.params.id)
+    .then((user) => {
+      res.send(user)
+    }).catch(err => res.send(err))
 })
 
 module.exports = api
